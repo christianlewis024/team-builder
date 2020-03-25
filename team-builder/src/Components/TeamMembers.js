@@ -1,9 +1,9 @@
 import React from "react";
-const TeamMembers = props => {
+const TeamMembers = ({ teamMembers, setMemberToEdit }) => {
   return (
     <>
-      {props.teamMembers.map(teamMember => (
-        <>
+      {teamMembers.map(teamMember => (
+        <ul key={teamMember.id}>
           <h2> {teamMember.name}</h2>
           <p>{teamMember.email} </p>
           <p> {teamMember.role}</p>
@@ -13,7 +13,13 @@ const TeamMembers = props => {
           <p>{teamMember.health}</p>
           <p>{teamMember.experience}</p>
           <p>{teamMember.gold}</p>
-        </>
+
+          {teamMember.name ? (
+            <>
+              <button onClick={() => setMemberToEdit(teamMember)}>Edit</button>
+            </>
+          ) : null}
+        </ul>
       ))}
     </>
   );

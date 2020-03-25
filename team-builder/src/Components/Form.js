@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Form = props => {
   const [teamMember, setTeamMember] = useState({
@@ -9,6 +9,11 @@ const Form = props => {
     weapon: "",
     race: ""
   });
+  useEffect(() => {
+    if (props.memberToEdit) {
+      setTeamMember(props.memberToEdit);
+    }
+  }, [props.memberToEdit]);
 
   const handleChanges = e => {
     setTeamMember({
@@ -19,7 +24,12 @@ const Form = props => {
 
   const submitForm = e => {
     e.preventDefault();
-    props.addNewTeamMember(teamMember);
+    if (props.memberToEdit) {
+      props.editMember(teamMember);
+    } else {
+      props.addNewTeamMember(teamMember);
+    }
+
     setTeamMember({
       name: "",
       email: "",
@@ -182,7 +192,7 @@ const Form = props => {
         />
       </div>
 
-      <button type="submit">Add Player</button>
+      <button type="submit">S U B M I T</button>
     </form>
   );
 };

@@ -18,6 +18,7 @@ function App() {
       gold: ""
     }
   ]);
+  const [memberToEdit, setMemberToEdit] = useState();
 
   const addNewTeamMember = teamMember => {
     const newTeamMember = {
@@ -35,11 +36,30 @@ function App() {
     };
     setTeamMembers([...teamMembers, newTeamMember]);
   };
+
+  const editMember = memberEditted => {
+    const edittedTeam = teamMembers.map(teamMember => {
+      if (teamMember.id === memberEditted.id) {
+        return memberEditted;
+      } else {
+        return teamMember;
+      }
+    });
+    setTeamMembers([...edittedTeam]);
+    setMemberToEdit(null);
+  };
   return (
     <div className="App">
       <h1>Campaign Members:</h1>
-      <Form addNewTeamMember={addNewTeamMember} />
-      <TeamMembers teamMembers={teamMembers} />
+      <Form
+        addNewTeamMember={addNewTeamMember}
+        memberToEdit={memberToEdit}
+        editMember={editMember}
+      />
+      <TeamMembers
+        teamMembers={teamMembers}
+        setMemberToEdit={setMemberToEdit}
+      />
       <header className="App-header"></header>
     </div>
   );
