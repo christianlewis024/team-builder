@@ -4,7 +4,10 @@ const Form = props => {
   const [teamMember, setTeamMember] = useState({
     name: "",
     email: "",
-    role: ""
+    role: "",
+    alignment: "",
+    weapon: "",
+    race: ""
   });
 
   const handleChanges = e => {
@@ -20,7 +23,10 @@ const Form = props => {
     setTeamMember({
       name: "",
       email: "",
-      role: ""
+      role: "",
+      alignment: "",
+      weapon: "",
+      race: ""
     });
   };
 
@@ -46,13 +52,12 @@ const Form = props => {
       />
       <br></br>
       <br></br>
-
       <label htmlFor="alignment">Alignment</label>
       <select
         id="alignment"
         type="select"
         name="alignment"
-        value={teamMember.role}
+        value={teamMember.alignment}
         onChange={handleChanges}
       >
         <option value="">--Choose Your Alignment</option>
@@ -76,7 +81,7 @@ const Form = props => {
         value={teamMember.role}
         onChange={handleChanges}
       >
-        <option value="">--Choose Your Fighter</option>
+        <option value="">--Choose Your Class</option>
         <option value="Cleric">Cleric</option>
         <option value="Paladin">Paladin</option>
         <option value="Rogue">Rogue</option>
@@ -86,20 +91,97 @@ const Form = props => {
       <br></br>
       <label htmlFor="starting-weapon">Starting Weapon</label>
       <select
-        id="role"
+        id="weapon"
         type="select"
-        name="role"
-        value={teamMember.role}
+        name="weapon"
+        value={teamMember.weapon}
         onChange={handleChanges}
       >
         <option value="">--choose your weapon</option>
         <option value="Rusty-Sword">Rusty Sword - Slashing</option>
-        <option value="Gnarled Staff">2h Striking</option>
-        <option value="Dagger">1h piercing</option>
-        <option value="Potato">A potato!</option>
+        <option value="Gnarled Staff">Gnarled Staff - 2h Striking</option>
+        <option value="Dagger">Dagger -1h piercing</option>
+        <option value="Potato">A potato! - 1h bludgeoning</option>
       </select>
       <br></br>
-      <br></br>
+      <h4>Choose your Race:</h4>
+
+      <div class="races">
+        Dwarf
+        <input
+          id="race"
+          type="radio"
+          name="race"
+          value="Dwarf"
+          onChange={handleChanges}
+        />
+        <br />
+        Hobbit
+        <input
+          id="race"
+          type="radio"
+          name="race"
+          value="Hobbit"
+          onChange={handleChanges}
+        />
+        <br />
+        Elf
+        <input
+          id="race"
+          type="radio"
+          name="race"
+          value="Elf"
+          onChange={handleChanges}
+        />
+        <br />
+        Human
+        <input
+          id="race"
+          type="radio"
+          name="race"
+          value="Human"
+          onChange={handleChanges}
+        />
+        <br />
+        Orc
+        <input
+          id="race"
+          type="radio"
+          name="race"
+          value="Orc"
+          onChange={handleChanges}
+        />
+        <br></br>
+      </div>
+      <div class="bottomthree">
+        <label htmlFor="experience">XP</label>
+        <input
+          id="experience"
+          type="text"
+          name="experience"
+          value={teamMember.experience}
+          onChange={handleChanges}
+        />
+
+        <label htmlFor="gold">Gold</label>
+        <input
+          id="gold"
+          type="text"
+          name="gold"
+          value={teamMember.gold}
+          onChange={handleChanges}
+        />
+
+        <label htmlFor="health">Health</label>
+        <input
+          id="health"
+          type="text"
+          name="health"
+          value={teamMember.health}
+          onChange={handleChanges}
+        />
+      </div>
+
       <button type="submit">Add Player</button>
     </form>
   );

@@ -2,16 +2,49 @@
   text-align: center;
 }
 body {
-  background-color: blue;
-  color: Teal;
+  background-image: url("./dungeon.jpg");
+  color: white;
+  font-weight: 900;
+  letter-spacing: 0.1em;
 }
 form {
   border: 1px solid black;
   width: 50%;
   margin-left: 25%;
   padding: 2%;
-  background-color: aqua;
+  background-color: rgba(255, 255, 255, 0.527);
   color: black;
+}
+label {
+  color: red;
+  font-weight: 700;
+  margin-right: 5%;
+  text-align: center;
+}
+h4 {
+  color: red;
+}
+.races {
+  text-align: end;
+  width: 60%;
+  font-weight: 700;
+  line-height: 1.9em;
+  letter-spacing: 0.1em;
+}
+button {
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: red;
+  font-weight: 900;
+  border-radius: 10px;
+}
+.bottomthree input {
+  width: 10%;
+  margin-bottom: 2%;
+}
+.bottomthree label {
+  margin-left: 5%;
 }
 
 .App-logo {

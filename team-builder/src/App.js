@@ -10,18 +10,28 @@ function App() {
       name: "",
       email: "",
       alignment: "",
-      role: ""
+      role: "",
+      weapon: "",
+      race: "",
+      health: "",
+      experience: "",
+      gold: ""
     }
   ]);
 
   const addNewTeamMember = teamMember => {
     const newTeamMember = {
       id: Date.now(),
-      name: teamMember.name,
-      email: teamMember.email,
-      email: teamMember.email,
-      alignment: teamMember.alignment,
-      role: teamMember.role
+      name: "Player Name: " + teamMember.name,
+
+      email: "Email: " + teamMember.email,
+      alignment: "Alignment: " + teamMember.alignment,
+      role: "Role: " + teamMember.role,
+      weapon: "Weapon: " + teamMember.weapon,
+      race: "Race: " + teamMember.race,
+      health: "health: " + teamMember.health,
+      experience: "XP: " + teamMember.experience,
+      gold: "Gold: " + teamMember.gold
     };
     setTeamMembers([...teamMembers, newTeamMember]);
   };
